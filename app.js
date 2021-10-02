@@ -4,7 +4,7 @@ console.log('hello');
 
 const key = '7d1e5512c847d1c72badc10dcb9d5e71'
 
-const cityName = 'Boston';
+const cityName = 'boston';
 const stateCode = 'ma';
 const countryCode = 'usa'
 
@@ -19,3 +19,9 @@ $.ajax({
     console.log('no data');
   }
 )
+
+
+$(() => {
+
+})
+
