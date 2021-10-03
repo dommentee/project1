@@ -4,9 +4,9 @@ console.log('hello');
 
 const key = '7d1e5512c847d1c72badc10dcb9d5e71'
 
-const cityName = 'boston';
-const stateCode = 'ma';
-const countryCode = 'usa'
+let cityName = 'tokyo';
+let stateCode = '';
+let countryCode = 'jp'
 
 $.ajax({
   url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${stateCode},${countryCode}&appid=${key}`
