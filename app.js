@@ -1,5 +1,3 @@
-// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={API key}
-//(291.01K − 273.15) × 9/5 + 32
 
 const key = '7d1e5512c847d1c72badc10dcb9d5e71'
 
@@ -7,7 +5,7 @@ let cityName = 'tokyo';
 let stateCode = '';
 let countryCode = 'jp'
 
-const setStatperm = () => {
+const setStatperm = () => {// function that connect to the api
   console.log('loading....');
   $.ajax({
     url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${stateCode},${countryCode}&appid=${key}`
@@ -21,7 +19,11 @@ const setStatperm = () => {
     }
   )
   
-} 
+}
+
+const getUserLocation = () => {
+
+}
 
 // $.ajax({
 //   url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${stateCode},${countryCode}&appid=${key}`
@@ -37,10 +39,12 @@ const setStatperm = () => {
 
 
 $(() => {
-  const $cityInput = $('#city-name').on('keyup', function () {
+  const $cityInput = $('#city-name').on('keyup', function () {// sets the city
     if ($(this).val()) {
       cityName =  $(this).val()
-    } 
+    }
+
+    
   })
   const $stateInput = $('#state-code').on('keyup', function () {
     if ($(this).val()) {
@@ -55,12 +59,9 @@ $(() => {
   
   $('form').on('submit', (e) => {
     e.preventDefault();
-    // console.log(cityName);
-    // console.log(stateCode);
-    // console.log(countryCode)
     setStatperm()
+    $('#form').trigger('reset')
     
   })
-  
 })
 
