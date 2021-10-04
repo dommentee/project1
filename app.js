@@ -55,11 +55,12 @@ $(() => {
   
   $('form').on('submit', (e) => {
     e.preventDefault();
-    console.log(cityName);
-    console.log(stateCode);
-    console.log(countryCode);
-  }) 
-  setStatperm ()
+    // console.log(cityName);
+    // console.log(stateCode);
+    // console.log(countryCode)
+    setStatperm()
+    
+  })
   
 })
 
