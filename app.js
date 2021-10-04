@@ -43,8 +43,6 @@ $(() => {
     if ($(this).val()) {
       cityName =  $(this).val()
     }
-
-    
   })
   const $stateInput = $('#state-code').on('keyup', function () {
     if ($(this).val()) {
@@ -59,8 +57,8 @@ $(() => {
   
   $('form').on('submit', (e) => {
     e.preventDefault();
-    setStatperm()
-    $('#form').trigger('reset')
+    setStatperm()//calls functions that starts api
+    $('#form').trigger('reset')//form/inputs 
     
   })
 })
