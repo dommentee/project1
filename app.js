@@ -5,7 +5,7 @@ let cityName = '';
 let stateCode = '';
 let countryCode = '';
 
-const options = {
+const options = {//code i got from MDN
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0
@@ -19,10 +19,9 @@ const sucess = (pos) => {
   console.log(coordnates);
 
   $.ajax({//one 
-    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`
+    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`//same api different call method
   }).then(
     (data) => {
-
       console.log(data)
       // console.log(data.name);
       
@@ -33,7 +32,7 @@ const sucess = (pos) => {
   )
 }
 
-function error(err) {
+function error(err) {//code i got from mdn
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
@@ -79,5 +78,7 @@ $(() => {
     $('#form').trigger('reset')//form/inputs 
     
   })
+
+  
 })
 
