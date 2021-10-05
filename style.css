@@ -4,5 +4,8 @@
 }
 
 body {
-  
+  font-family: 'Work Sans', sans-serif;
+	color: #3D3D3D;
+	font-weight: 300;
+	background: -webkit-linear-gradient( #F7F7F7, #EDEDED); /*gradient color for the all backgrounds*/
 }
