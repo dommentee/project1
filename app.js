@@ -36,7 +36,7 @@ function error(err) {//code i got from mdn
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
-navigator.geolocation.getCurrentPosition(sucess, error, [options])
+// navigator.geolocation.getCurrentPosition(sucess, error, [options])
 
 const setStatperm = () => {// function that connect to the api
   console.log('loading....');
@@ -79,6 +79,6 @@ $(() => {
     
   })
 
-  
+
 })
 
