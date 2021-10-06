@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome-free-5.15.2-web/LICENSE.txt">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
   <script src="app.js" charset="utf-8"></script>
   <link href="style.css" rel="stylesheet" type="text/css">
   
@@ -32,21 +34,25 @@
     <!-- end of modal -->
     <div class="content">
       <div class="nav">
-        <div id="search"><span>search</span></div>
+        <div id="search">
+          <i id="search-icon" class="fas fa-search"></i>
+          <p id="locations">Locations</p>
+        </div>
         <div id="city"></div>
         <div id="tuggle">Celsius</div>
       </div>
       <div class="weather">
         <div class="current-temp-wrap">
-          <div id="image"></div>
-          <div id="temperature"><span id="temp">80</span>&#176</div>
-          <div class="min-mx">
-            min:<span id="min">45</span>
-            max:<span id="max">60</span>
+          <div id="image"><i class="fas fa-cloud-sun-rain"></i></div>
+          <div id="temperature"><span id="temp"></span>&#176</div>
+          <div class="min-max">
+            min:<span id="min"></span>
+            max:<span id="max"></span>
           </div>
         </div>
-        <div id="description">cloudy with a chance of meatballs</div>
-
+        <div class="description">Feels <span id="feels"></span></div>
+        <div class="description" id="conditions"></div>
+        <div class="hourly-forcast"></div>
 
       </div>
     </div>

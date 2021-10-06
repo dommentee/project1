@@ -17,7 +17,6 @@ body {
 }
 .container {
   padding: 3% 5%;
-
 }
 
 .modal {
@@ -63,7 +62,6 @@ form {
   position: absolute;
   top: 18vh;
   right: 29vw;
-
 }
 .closebtn:hover {
   cursor: pointer;
@@ -101,7 +99,6 @@ button:hover{
   background-color: #a8a8a8;
   cursor: pointer;
 }
-
 .content {
 
 }
@@ -113,38 +110,58 @@ button:hover{
 }
 #search {
   width: fit-content;
-  padding: 10px 30px;
-  font-weight: bold;
-  border: 2px solid #a8a8a8;
+  padding: 5px 30px;
+  text-align: center;
+  font-weight: 600;
+
+}
+#search-icon {
+  font-size: 3em;
 }
 #search:hover {
-  background-color: white;
   cursor: pointer;
 }
-
+#locations {
+  color: var(--orange)
+}
 #city {
   font-size: 2.5em;
   font-weight: 500;
 }
 #tuggle {
   padding: 8px 30px;
-  background-color: dodgerblue;
+  background-color: rgba(27, 141, 255, 0.966);
   border-radius: 3px;
   color: white;
 }
-.weather {
-  
+#tuggle:hover {
+  cursor: pointer;
 }
 .current-temp-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 #temperature {
   width: fit-content;
-  margin: 0 auto;
   font-size: 12em;
   font-weight: 500;
 }
-#description {
+.min-max {
+  width: fit-content;
+  font-weight: 400;
+
+}
+#image {
+  width: fit-content;
+  font-size: 12em;
+}
+.description {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  font-weight: 400;
+}
+.hourly-forcast {
+
 }

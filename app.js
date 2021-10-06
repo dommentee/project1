@@ -7,6 +7,7 @@ let cityName = '';
 let stateCode = '';
 let countryCode = '';
 
+
 const options = {//code i got from MDN
   enableHighAccuracy: true,
   timeout: 5000,
@@ -25,7 +26,10 @@ const sucess = (pos) => {
   }).then(
     (data) => {
       console.log(data)
-      $('#city').text((data.main.temp - 273.15) * (9 / 5 )+ 32);
+      const temperature = Math.round(data.main.temp - 273.15) * 9 / 5 + 32
+      $('#city').text(data.name).css('text-transform', 'uppercase')
+      
+      
       // console.log(data.name);
       
     },
@@ -49,8 +53,16 @@ const setStatperm = () => {// function that connect to the api
   }).then(
     (data) => {
       console.log(data)
+      const getFahrenheit = (kelvin) => {
+        fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
+        return fahrenheitTemp
+      }
       $('#city').text(data.name).css('text-transform', 'uppercase')
-      $('#temp').text((data.main.temp - 273.15) * (9 / 5 )+ 32);
+      $('#temp').text(getFahrenheit(data.main.temp))
+      $('min')
+      $('max')
+      $('feels')
+      $('conditions')
     },
     () => {
       console.log('no data');
