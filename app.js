@@ -37,6 +37,8 @@ const sucess = (pos) => {
       $('#city').text(data.name).css('text-transform', 'uppercase')
       $('#conditions').text(data.weather[0].description)
       
+      $('#image').attr("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+
       $('#temp').text(getFahrenheit(data.main.temp))
       $('#min').text(getFahrenheit(data.main.temp_min))
       $('#max').text(getFahrenheit(data.main.temp_max))
