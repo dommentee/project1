@@ -1,11 +1,11 @@
 
 const key = '7d1e5512c847d1c72badc10dcb9d5e71'
-// (284.6K − 273.15) × 9/5 + 32
-
 
 let cityName = '';
 let stateCode = '';
 let countryCode = '';
+
+
 
 const getFahrenheit = (kelvin) => {//function to change temp to fahrenheit
   fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
@@ -13,7 +13,7 @@ const getFahrenheit = (kelvin) => {//function to change temp to fahrenheit
 }
 const getCelcius = (kelvin) => {//function to change temp to fahrenheit
   celciusTemp = Math.round(kelvin - 273.15)
-  return celcusTemp
+  return celciusTemp
 }
 
 const options = {//code i got from MDN
@@ -35,13 +35,28 @@ const sucess = (pos) => {
     (data) => {
       console.log(data)
       $('#city').text(data.name).css('text-transform', 'uppercase')
+      $('#conditions').text(data.weather[0].description)      
       $('#temp').text(getFahrenheit(data.main.temp))
       $('#min').text(getFahrenheit(data.main.temp_min))
       $('#max').text(getFahrenheit(data.main.temp_max))
       $('#feels').text(getFahrenheit(data.main.feels_like))
-      $('#conditions').text(data.weather[0].description)
-      // console.log(data.name);
-      
+
+      $('#tuggle').on('click', (e) => {
+        e.currentTarget;
+        $('#tuggle').css('background-color', 'rgb(241, 87, 67)').text('fahrenheit')
+        fahrenheit = false;
+        console.log(data);
+        $('#temp').text(getCelcius(data.main.temp))
+        $('#min').text(getCelcius(data.main.temp_min))
+        $('#max').text(getCelcius(data.main.temp_max))
+        $('#feels').text(getCelcius(data.main.feels_like))
+      })
+
+      // $('#temp').text(getCelcius(data.main.temp))
+      // $('#min').text(getCelcius(data.main.temp_min))
+      // $('#max').text(getCelcius(data.main.temp_max))
+      // $('#feels').text(getCelcius(data.main.feels_like))
+      // console.log(data.name);      
     },
     () => {
       console.log('no data');
@@ -110,6 +125,12 @@ $(() => {
     $('#form').trigger('reset')//form/inputs 
     $modal.css('display', 'none');
   })
+  // $('#tuggle').on('click', (e) => {
+  //   e.currentTarget;
+  //   $('#tuggle').css('background-color', 'rgb(241, 87, 67)').text('fahrenheit')
+  //   fahrenheit = false;
+  //   console.log(data);
+  // })
 
 
 })
