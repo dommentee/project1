@@ -7,6 +7,14 @@ let cityName = '';
 let stateCode = '';
 let countryCode = '';
 
+const getFahrenheit = (kelvin) => {//function to change temp to fahrenheit
+  fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
+  return fahrenheitTemp
+}
+const getCelcius = (kelvin) => {//function to change temp to fahrenheit
+  celciusTemp = Math.round(kelvin - 273.15)
+  return celcusTemp
+}
 
 const options = {//code i got from MDN
   enableHighAccuracy: true,
@@ -22,16 +30,11 @@ const sucess = (pos) => {
   console.log(coordnates);
 
   $.ajax({//one 
-    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`//same api different call method
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`//same api different call method
   }).then(
     (data) => {
       console.log(data)
-      const temperature = Math.round(data.main.temp - 273.15) * 9 / 5 + 32
       $('#city').text(data.name).css('text-transform', 'uppercase')
-      const getFahrenheit = (kelvin) => {
-        fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
-        return fahrenheitTemp
-      }
       $('#temp').text(getFahrenheit(data.main.temp))
       $('#min').text(getFahrenheit(data.main.temp_min))
       $('#max').text(getFahrenheit(data.main.temp_max))
@@ -55,21 +58,17 @@ navigator.geolocation.getCurrentPosition(sucess, error, [options])
 const setStatperm = () => {// function that connect to the api
   console.log('loading....');
   $.ajax({
-    url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${stateCode},${countryCode}&appid=${key}`
+    url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${stateCode},${countryCode}&appid=${key}`
   
   }).then(
     (data) => {
       console.log(data)
-      const getFahrenheit = (kelvin) => {
-        fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
-        return fahrenheitTemp
-      }
       $('#city').text(data.name).css('text-transform', 'uppercase')
       $('#temp').text(getFahrenheit(data.main.temp))
-      $('min')
-      $('max')
-      $('feels')
-      $('conditions')
+      $('#min').text(getFahrenheit(data.main.temp_min))
+      $('#max').text(getFahrenheit(data.main.temp_max))
+      $('#feels').text(getFahrenheit(data.main.feels_like))
+      $('#conditions').text(data.weather[0].description)
     },
     () => {
       console.log('no data');
