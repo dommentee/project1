@@ -1,5 +1,7 @@
 
 const key = '7d1e5512c847d1c72badc10dcb9d5e71'
+// (284.6K − 273.15) × 9/5 + 32
+
 
 let cityName = '';
 let stateCode = '';
@@ -23,6 +25,7 @@ const sucess = (pos) => {
   }).then(
     (data) => {
       console.log(data)
+      $('#city').text((data.main.temp - 273.15) * (9 / 5 )+ 32);
       // console.log(data.name);
       
     },
@@ -46,6 +49,8 @@ const setStatperm = () => {// function that connect to the api
   }).then(
     (data) => {
       console.log(data)
+      $('#city').text(data.name).css('text-transform', 'uppercase')
+      $('#temp').text((data.main.temp - 273.15) * (9 / 5 )+ 32);
     },
     () => {
       console.log('no data');
@@ -62,7 +67,6 @@ $(() => {
   })
   const $closeBtn = $('.closebtn').on('click', function () {
     $modal.css('display', 'none')
-    console.log('click');
   })
   
 
@@ -86,7 +90,7 @@ $(() => {
     e.preventDefault();
     setStatperm()//calls functions that starts api
     $('#form').trigger('reset')//form/inputs 
-    
+    $modal.css('display', 'none');
   })
 
 

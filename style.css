@@ -103,6 +103,13 @@ button:hover{
 }
 
 .content {
+
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
 }
 #search {
   width: fit-content;
@@ -113,4 +120,24 @@ button:hover{
 #search:hover {
   background-color: white;
   cursor: pointer;
+}
+
+#city {
+  font-size: 2.5em;
+  font-weight: 500;
+}
+#tuggle {
+  padding: 8px 30px;
+  background-color: dodgerblue;
+  border-radius: 3px;
+  color: white;
+}
+.weather {
+  
+}
+#temperature {
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 12em;
+  font-weight: 500;
 }
