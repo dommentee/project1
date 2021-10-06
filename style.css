@@ -2,18 +2,26 @@
   padding: 0;
   margin: 0;
 }
+:root {
+  --orange: rgb(241, 87, 67);
+  --white: #faf0e6;
+  --fontcolor: #3D3D3D;
+}
 
 body {
   font-family: 'Work Sans', sans-serif;
 	color: #3D3D3D;
 	font-weight: 300;
-	background: -webkit-linear-gradient( #e9e8e8, #e9e9e9); /*gradient color for the all backgrounds*/
+  background-color: #f8f8f8fa;
+	/* background: -webkit-linear-gradient( #f1f0f0, #f1f0f0); gradient color for the all backgrounds */
 }
 .container {
+  padding: 3% 5%;
 
 }
 
 .modal {
+  display: none;
   width: 100%;
   position: fixed;
   height: 100vh;
@@ -41,7 +49,7 @@ h3 {
   padding: 0 0 3px 0;
 }
 span {
-  color: rgb(241, 87, 67);
+  color: var(--orange);
 }
 form {
   width: fit-content;
@@ -57,11 +65,14 @@ form {
   right: 29vw;
 
 }
+.closebtn:hover {
+  cursor: pointer;
+}
 .bar {
   width: 40px;
   height: 5px;
   margin: 6px 0;
-  background-color: #202D85; 
+  background-color: #3D3D3D; 
 }
 #one {
   transform: rotate(-45deg) translate(-9px, 6px);
@@ -83,10 +94,23 @@ button {
   padding: 10px 5px;
   margin-top: 3px;
   border: none;
-  background-color: rgb(241, 87, 67);
+  background-color: var(--orange);
   color: rgba(247, 247, 247, 0.925);
 }
 button:hover{
   background-color: #a8a8a8;
+  cursor: pointer;
+}
+
+.content {
+}
+#search {
+  width: fit-content;
+  padding: 10px 30px;
+  font-weight: bold;
+  border: 2px solid #a8a8a8;
+}
+#search:hover {
+  background-color: white;
   cursor: pointer;
 }

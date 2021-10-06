@@ -56,6 +56,16 @@ const setStatperm = () => {// function that connect to the api
 
 
 $(() => {
+  const $modal = $('.modal')
+  const $searchBtn = $('#search').on('click', function () {
+    $modal.css('display', 'block')
+  })
+  const $closeBtn = $('.closebtn').on('click', function () {
+    $modal.css('display', 'none')
+    console.log('click');
+  })
+  
+
   const $cityInput = $('#city-name').on('keyup', function () {// sets the city
     if ($(this).val()) {
       cityName =  $(this).val()
