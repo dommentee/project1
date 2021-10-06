@@ -28,8 +28,15 @@ const sucess = (pos) => {
       console.log(data)
       const temperature = Math.round(data.main.temp - 273.15) * 9 / 5 + 32
       $('#city').text(data.name).css('text-transform', 'uppercase')
-      
-      
+      const getFahrenheit = (kelvin) => {
+        fahrenheitTemp = Math.round((kelvin - 273.15) * 9 / 5 + 32)
+        return fahrenheitTemp
+      }
+      $('#temp').text(getFahrenheit(data.main.temp))
+      $('#min').text(getFahrenheit(data.main.temp_min))
+      $('#max').text(getFahrenheit(data.main.temp_max))
+      $('#feels').text(getFahrenheit(data.main.feels_like))
+      $('#conditions').text(data.weather[0].description)
       // console.log(data.name);
       
     },
@@ -43,7 +50,7 @@ function error(err) {//code i got from mdn
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
-// navigator.geolocation.getCurrentPosition(sucess, error, [options])
+navigator.geolocation.getCurrentPosition(sucess, error, [options])
 
 const setStatperm = () => {// function that connect to the api
   console.log('loading....');
