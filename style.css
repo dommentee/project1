@@ -50,6 +50,25 @@ form {
   margin: 0 auto;
   padding: 17px 20px;
 }
+.closebtn {
+  width: fit-content;
+  position: absolute;
+  top: 18vh;
+  right: 29vw;
+
+}
+.bar {
+  width: 40px;
+  height: 5px;
+  margin: 6px 0;
+  background-color: #202D85; 
+}
+#one {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+#two {
+  transform: rotate(45deg);
+}
 input {
   padding: 9px 8px;
   width: 100%;
