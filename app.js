@@ -4,7 +4,7 @@ const key = '7d1e5512c847d1c72badc10dcb9d5e71'
 let cityName = '';
 let stateCode = '';
 let countryCode = '';
-
+let tempType = 'fahrenheit'
 
 
 const getFahrenheit = (kelvin) => {//function to change temp to fahrenheit
@@ -26,37 +26,41 @@ const sucess = (pos) => {
   let coordnates = pos.coords
   let lat = coordnates.latitude
   let long = coordnates.longitude
-  console.log('loading....');
   console.log(coordnates);
 
   $.ajax({//one 
     url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`//same api different call method
   }).then(
     (data) => {
+      $('#loading').remove()
       console.log(data)
       $('#city').text(data.name).css('text-transform', 'uppercase')
-      $('#conditions').text(data.weather[0].description)      
+      $('#conditions').text(data.weather[0].description)
+      
       $('#temp').text(getFahrenheit(data.main.temp))
       $('#min').text(getFahrenheit(data.main.temp_min))
       $('#max').text(getFahrenheit(data.main.temp_max))
       $('#feels').text(getFahrenheit(data.main.feels_like))
-
+      
       $('#tuggle').on('click', (e) => {
-        e.currentTarget;
-        $('#tuggle').css('background-color', 'rgb(241, 87, 67)').text('fahrenheit')
-        fahrenheit = false;
-        console.log(data);
-        $('#temp').text(getCelcius(data.main.temp))
-        $('#min').text(getCelcius(data.main.temp_min))
-        $('#max').text(getCelcius(data.main.temp_max))
-        $('#feels').text(getCelcius(data.main.feels_like))
-      })
-
-      // $('#temp').text(getCelcius(data.main.temp))
-      // $('#min').text(getCelcius(data.main.temp_min))
-      // $('#max').text(getCelcius(data.main.temp_max))
-      // $('#feels').text(getCelcius(data.main.feels_like))
-      // console.log(data.name);      
+        // console.log(tempType);
+        if (tempType === 'fahrenheit') {
+          tempType = 'celcius' 
+          $('#tuggle').css('background-color', 'rgb(241, 87, 67)').text('fahrenheit')
+          $('#temp').text(getCelcius(data.main.temp))
+          $('#min').text(getCelcius(data.main.temp_min))
+          $('#max').text(getCelcius(data.main.temp_max))
+          $('#feels').text(getCelcius(data.main.feels_like))
+        } else {
+          tempType = 'fahrenheit'
+          console.log(tempType);
+          $('#tuggle').css('background-color', 'rgba(27, 141, 255, 0.966)').text('cecius')
+          $('#temp').text(getFahrenheit(data.main.temp))
+          $('#min').text(getFahrenheit(data.main.temp_min))
+          $('#max').text(getFahrenheit(data.main.temp_max))
+          $('#feels').text(getFahrenheit(data.main.feels_like))
+        }
+      })    
     },
     () => {
       console.log('no data');
@@ -125,13 +129,6 @@ $(() => {
     $('#form').trigger('reset')//form/inputs 
     $modal.css('display', 'none');
   })
-  // $('#tuggle').on('click', (e) => {
-  //   e.currentTarget;
-  //   $('#tuggle').css('background-color', 'rgb(241, 87, 67)').text('fahrenheit')
-  //   fahrenheit = false;
-  //   console.log(data);
-  // })
-
 
 })
 
