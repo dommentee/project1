@@ -81,6 +81,9 @@ form {
   margin: 6px 0;
   background-color: #3D3D3D; 
 }
+#findertext {
+  color:rgba(27, 141, 255, 0.966)
+}
 #one {
   transform: rotate(-45deg) translate(-9px, 6px);
 }
@@ -138,6 +141,8 @@ button:hover{
   font-weight: 500;
 }
 #tuggle {
+  width: 10%;
+  text-align: center;
   padding: 8px 30px;
   background-color: rgba(27, 141, 255, 0.966);
   border-radius: 3px;
