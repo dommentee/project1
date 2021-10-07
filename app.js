@@ -28,7 +28,7 @@ const sucess = (pos) => {
   let long = coordnates.longitude
   console.log(coordnates);
 
-  $.ajax({//one 
+  $.ajax({//
     url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`//same api different call method
   }).then(
     (data) => {
@@ -37,14 +37,14 @@ const sucess = (pos) => {
       $('#city').text(data.name).css('text-transform', 'uppercase')
       $('#conditions').text(data.weather[0].description)
       
-      $('#image').attr("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+      $('#image').attr("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);//finds the id of the image
 
       $('#temp').text(getFahrenheit(data.main.temp))
       $('#min').text(getFahrenheit(data.main.temp_min))
       $('#max').text(getFahrenheit(data.main.temp_max))
       $('#feels').text(getFahrenheit(data.main.feels_like))
       
-      $('#tuggle').on('click', (e) => {
+      $('#tuggle').on('click', (e) => {//toggle type
         // console.log(tempType);
         if (tempType === 'fahrenheit') {
           tempType = 'celcius' 
@@ -56,7 +56,7 @@ const sucess = (pos) => {
         } else {
           tempType = 'fahrenheit'
           console.log(tempType);
-          $('#tuggle').css('background-color', 'rgba(27, 141, 255, 0.966)').text('cecius')
+          $('#tuggle').css('background-color', 'rgba(27, 141, 255, 0.966)').text('celcius')
           $('#temp').text(getFahrenheit(data.main.temp))
           $('#min').text(getFahrenheit(data.main.temp_min))
           $('#max').text(getFahrenheit(data.main.temp_max))
